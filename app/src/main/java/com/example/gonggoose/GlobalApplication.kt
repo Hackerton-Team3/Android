@@ -30,7 +30,7 @@ class GlobalApplication : Application() {
         super.onCreate()
 
         // Kakao SDK 초기화
-        KakaoSdk.init(this, getString(R.string.native_test_app_key))
+        KakaoSdk.init(this, getString(R.string.native_app_key))
 
         /*var keyHash = Utility.getKeyHash(this)
         Log.i("GlobalApplication", "$keyHash")*/
