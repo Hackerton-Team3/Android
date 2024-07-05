@@ -55,8 +55,12 @@ fun PostBottomBar(navController: NavController) {
             .fillMaxWidth()
             .height(54.dp)
             .clickable {
-                if (viewModel.isFillAllPostInfo()) color = LightBlue else color = MediumGray
-                //서버에 요청
+                if (viewModel.isFillAllPostInfo()) {
+                    color = LightBlue
+                    viewModel.createPostRequestFun()
+                    navController.navigate("Home")
+                }
+                else color = MediumGray
             }
     ) {
         Text(
