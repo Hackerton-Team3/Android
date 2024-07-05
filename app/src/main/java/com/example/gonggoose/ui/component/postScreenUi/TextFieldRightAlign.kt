@@ -1,5 +1,6 @@
 package com.example.gonggoose.ui.component.postScreenUi
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,12 +23,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.gonggoose.R
+import com.example.gonggoose.navigation.LocalNavGraphViewModelStoreOwner
 import com.example.gonggoose.ui.theme.Black
 import com.example.gonggoose.ui.theme.DarkGray
+import com.example.gonggoose.viewmodel.HomeViewModel
 
 @Composable
 fun TextFieldRightAlign(total_member : MutableState<Int>, maxLength: Int, unit: String) {
+    val viewModel: HomeViewModel =
+        viewModel(viewModelStoreOwner = LocalNavGraphViewModelStoreOwner.current)
+
     BasicTextField(
         value = total_member.value.toString(),
         enabled = true,
@@ -35,8 +42,18 @@ fun TextFieldRightAlign(total_member : MutableState<Int>, maxLength: Int, unit: 
             if (it.length <= maxLength) {
                 if(it.isEmpty()){
                     total_member.value = 0
+                    if(unit.equals("명")) viewModel.createPostInfo.component1().total_member = 0
+                    else viewModel.createPostInfo.component1().price = 0
                 }else{
                     total_member.value = it.toInt()
+                    if(unit.equals("명")) {
+                        viewModel.createPostInfo.component1().total_member = it.toInt()
+//                        Log.d("memememememememe", viewModel.createPostInfo.component1().total_member.toString())
+                    }
+                    else {
+                        viewModel.createPostInfo.component1().price = it.toInt()
+//                        Log.d("memememememememe", viewModel.createPostInfo.component1().price.toString())
+                    }
                 }
             } else {
 

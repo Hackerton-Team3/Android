@@ -14,8 +14,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.gonggoose.R
@@ -27,7 +29,7 @@ fun TopBar() {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(70.dp),
+                .padding(20.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -35,7 +37,9 @@ fun TopBar() {
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                 fontSize = 18.sp,
                 modifier = Modifier
-                    .padding(start = 25.dp)
+                    .padding(start = 25.dp),
+                style = TextStyle(lineHeight = TextUnit.Unspecified)
+
             )
             Spacer(modifier = Modifier.weight(1f))
 
@@ -49,5 +53,11 @@ fun TopBar() {
                     .size(28.dp)
             )
         }
+        Spacer(
+            modifier = Modifier
+                .height(1.dp)
+                .fillMaxWidth()
+                .background(MediumGray)
+        )
     }
 }

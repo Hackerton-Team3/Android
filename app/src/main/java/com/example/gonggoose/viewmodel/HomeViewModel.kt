@@ -4,14 +4,24 @@ import android.net.Uri
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.gonggoose.data.CreatePostInfo
+import com.example.gonggoose.data.CreatePostRequest
 import com.example.gonggoose.data.DetailPostInfo
 import com.example.gonggoose.data.PostItem
 import com.example.gonggoose.data.UserInfo
+import com.example.gonggoose.utils.getUserId
+import com.example.gonggoose.utils.network.Repository
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.util.Calendar
 
 class HomeViewModel : ViewModel() {
+
+    val repository = Repository()
+
     var postList = mutableListOf<PostItem>(
         PostItem(1,null,"진행 중","청심대에서 건구스랑 놀 사람",3,10),
         PostItem(1,null,"마감","청심대에서 건구스랑 놀 사람",3,10),
@@ -47,10 +57,6 @@ class HomeViewModel : ViewModel() {
     )
 
     var uriList = mutableListOf<Uri>()
-
-    fun createPost(){ //백엔드와 연동
-
-    }
 
     fun getDetailPost(postId : Long){
 
@@ -88,4 +94,30 @@ class HomeViewModel : ViewModel() {
         return true;
     }
 
+
+    fun createPostRequestFun(){
+        val createPostRequest = getUserId()?.let {
+            CreatePostRequest(
+                deadline = createPostInfo.component1().deadline!!,
+                writer_id = it,
+                title = createPostInfo.component1().title!!,
+                max_user_number = createPostInfo.component1().total_member!!,
+                expected_price = createPostInfo.component1().price!!,
+                content = createPostInfo.component1().content!!
+            )
+        }
+
+        val imageParts = mutableListOf<MultipartBody.Part>()
+
+        uriList.forEachIndexed { index, uri ->
+            val file = File(uri.path!!)
+            val requestBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+            val part = MultipartBody.Part.createFormData("image$index", file.name, requestBody)
+            imageParts.add(part)
+        }
+
+        if (createPostRequest != null) {
+            repository.createPostAPI(imageParts,createPostRequest)
+        }
+    }
 }
