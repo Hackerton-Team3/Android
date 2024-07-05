@@ -16,6 +16,7 @@ val RoyalBlue = Color(android.graphics.Color.parseColor("#4169E1"))
 
 //secondary
 val LivingCoral = Color(android.graphics.Color.parseColor("#FF6F61"))
+val PaleGray = Color(android.graphics.Color.parseColor("#F2F2F2"))
 val LightGray = Color(android.graphics.Color.parseColor("#D9D9D9"))
 val MediumGray = Color(android.graphics.Color.parseColor("#A8A8A8"))
 val DarkGray = Color(android.graphics.Color.parseColor("#4A4A4A"))

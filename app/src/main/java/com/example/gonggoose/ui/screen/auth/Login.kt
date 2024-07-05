@@ -31,15 +31,19 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.gonggoose.R
+import com.example.gonggoose.ui.component.shadow
+import com.example.gonggoose.ui.theme.DarkGray
 import com.example.gonggoose.ui.theme.KakaoBlack
 import com.example.gonggoose.ui.theme.KakaoYellow
+import com.example.gonggoose.ui.theme.MediumGray
 import com.example.gonggoose.ui.theme.RoyalBlue
 import com.example.gonggoose.utils.auth.kakaoLogin
 import com.example.gonggoose.utils.auth.kakaoTalkLogin
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController : NavController) {
 
     val context = LocalContext.current
 
@@ -89,13 +93,21 @@ fun LoginScreen() {
             ) {
 
                 Button(
+                    shape = RoundedCornerShape(8.dp),
                     colors = ButtonDefaults.buttonColors(
                         containerColor = KakaoYellow,
                         disabledContainerColor = KakaoYellow
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(color = KakaoYellow, shape = RoundedCornerShape(8.dp)),
+                        .shadow(
+                            color = MediumGray,
+                            borderRadius = 8.dp,
+                            offsetY = 5.dp,
+                            spread = 1.dp,
+                            blurRadius = 8.dp
+                        )
+                    ,
                     content = {
                         Text(
                             text = "카카오톡으로 간편로그인",
@@ -119,6 +131,7 @@ fun LoginScreen() {
             }
 
             Button(
+                shape = RoundedCornerShape(8.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = KakaoYellow,
                     disabledContainerColor = KakaoYellow
@@ -126,7 +139,13 @@ fun LoginScreen() {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = dimensionResource(id = R.dimen.padding_15))
-                    .background(color = KakaoYellow, shape = RoundedCornerShape(8.dp)),
+                    .shadow(
+                        color = MediumGray,
+                        borderRadius = 8.dp,
+                        offsetY = 5.dp,
+                        spread = 1.dp,
+                        blurRadius = 8.dp
+                    ),
                 contentPadding = PaddingValues(
                     top = 4.dp,
                     bottom = 4.dp,
@@ -139,7 +158,7 @@ fun LoginScreen() {
                         fontFamily = FontFamily(Font(R.font.noto_sans_kr_bold))
                     )
                 },
-                onClick = { kakaoLogin(context) },
+                onClick = { kakaoLogin(context, navController) },
             )
 
 

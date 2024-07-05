@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -29,15 +28,15 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.gonggoose.R
+import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.ui.component.InputTextField
-import com.example.gonggoose.ui.theme.KakaoBlack
-import com.example.gonggoose.ui.theme.KakaoYellow
+import com.example.gonggoose.ui.theme.LightGray
 import com.example.gonggoose.ui.theme.RoyalBlue
-import com.example.gonggoose.utils.auth.kakaoLogin
 
 @Composable
-fun EnterNickNameScreen() {
+fun EnterNickNameScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -79,19 +78,21 @@ fun EnterNickNameScreen() {
                 nickName = it
                 characterCount = it.length
             },
-            hint = "닉네임을 입력하세요"
+            hint = "닉네임을 입력하세요",
+            selectedColor = RoyalBlue
         )
 
         Spacer(modifier = Modifier.weight(1f))
 
         Button(
+            enabled = nickName.isNotEmpty(),
+            shape = RoundedCornerShape(15.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = RoyalBlue,
-                disabledContainerColor = RoyalBlue
+                containerColor = if (nickName.isNotEmpty()) RoyalBlue else LightGray,
+                disabledContainerColor = if (nickName.isNotEmpty()) RoyalBlue else LightGray
             ),
             modifier = Modifier
-                .fillMaxWidth()
-                .background(color = RoyalBlue, shape = RoundedCornerShape(15.dp)),
+                .fillMaxWidth(),
             contentPadding = PaddingValues(
                 top = 4.dp,
                 bottom = 4.dp,
@@ -105,7 +106,7 @@ fun EnterNickNameScreen() {
                 )
             },
             onClick = {
-                //TODO : 네비게이션 연결
+                navController.navigate(Routes.SchoolVerification.route)
             },
         )
 
