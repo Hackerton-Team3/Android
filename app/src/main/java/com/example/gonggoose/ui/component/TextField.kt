@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Divider
@@ -68,7 +67,8 @@ fun InputTextField(
                                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                                 fontSize = 13.sp,
                                 color = DarkGray,
-                                style = TextStyle(lineHeight = TextUnit.Unspecified) //text 기본 높이 삭제
+                                style = TextStyle(lineHeight = TextUnit.Unspecified)
+                          
                             )
                         }
                         innerTextField()
@@ -97,7 +97,8 @@ fun InputTextField(
                     fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                     fontSize = 11.sp,
                     color = Color.Black,
-                    style = TextStyle(lineHeight = TextUnit.Unspecified) //text 기본 높이 삭제
+                    style = TextStyle(lineHeight = TextUnit.Unspecified)
+
                 )
 
             }
