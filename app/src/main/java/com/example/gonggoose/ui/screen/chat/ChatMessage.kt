@@ -88,12 +88,12 @@ fun ChatMessageScreen(viewModel: ChatViewModel = ChatViewModel()) {
                     state = listState,
                     verticalArrangement = Arrangement.spacedBy(15.dp),
                 ) {
-                    if (chatMessages.isNotEmpty()) {
-                        items(chatMessages.size) { index ->
-                            ChatMessageSelf(message = chatMessages[index])
-                            ChatMessage(message = chatMessages[index])
+                    if (chatMessages?.isNotEmpty() == true) {
+                        items(chatMessages!!.size) { index ->
 
-                            //TODO : 날짜가 변경되면 띄우기
+                            ChatMessageSelf(message = chatMessages[index].content)
+                            ChatMessage(message = chatMessages[index].content)
+
 //                        Text(
 //                            text = "2024년 7월 5일 금요일",
 //                            fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),

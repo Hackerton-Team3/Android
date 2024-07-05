@@ -20,3 +20,10 @@ data class ApiResponse(
 data class Result(
     @SerializedName("userId") val userId: Long
 )
+
+data class ApiResponse2(
+    @SerializedName("code") val code: Int,
+    @SerializedName("status") val status: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("result") val result: Long
+)

@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.gonggoose.R
+import com.example.gonggoose.data.ChattingRoom
 import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.ui.theme.DarkGray
 import com.example.gonggoose.ui.theme.PaleGray
@@ -177,7 +178,7 @@ fun ChatMessageSelf(message: String) {
 }
 
 @Composable
-fun ChatRoom(message: String, navController: NavController) {
+fun ChatRoom(chatRoom: ChattingRoom, navController: NavController) {
 
     Row(
         modifier = Modifier
@@ -209,7 +210,7 @@ fun ChatRoom(message: String, navController: NavController) {
         ) {
 
             Text(
-                text = "공구스구스구스구스구스", //TODO : 공구 제목
+                text = chatRoom.title,
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontSize = 15.sp,
                 color = Color.Black,
@@ -219,7 +220,7 @@ fun ChatRoom(message: String, navController: NavController) {
             Text(
                 modifier = Modifier
                     .padding(top = 4.dp),
-                text = "야호야호야호야호야호야호호야호야호야호야호야호호야호야호야호야호야호호야호야호야호야호야호", //TODO : 최신 채팅
+                text = chatRoom.lastComment,
                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
                 fontSize = 11.sp,
                 color = DarkGray,

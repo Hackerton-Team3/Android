@@ -27,6 +27,8 @@ fun saveKakaoId(kakaoId: String) {
     editor.apply()
 }
 
+fun getKakaoId(): String? = mSharedPreferences.getString("kakaoId", null)
+
 fun saveNickname(nickname: String) {
     val editor = mSharedPreferences.edit()
     editor.putString("nickname", nickname)
