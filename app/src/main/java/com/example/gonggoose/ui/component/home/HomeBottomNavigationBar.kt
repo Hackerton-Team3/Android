@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -37,7 +38,8 @@ import com.example.gonggoose.ui.theme.White
 fun BottomNavigationBar(navController: NavController) {
 
     Box(
-        modifier = Modifier.height(130.dp)
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.BottomCenter
     ){
         NavigationBar (
             containerColor = RoyalBlue,

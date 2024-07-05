@@ -48,10 +48,6 @@ class HomeViewModel : ViewModel() {
 
     var uriList = mutableListOf<Uri>()
 
-    fun createPost(){ //백엔드와 연동
-
-    }
-
     fun getDetailPost(postId : Long){
 
     }

@@ -1,6 +1,7 @@
 package com.example.gonggoose.ui.component.postScreenUi
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -23,12 +24,19 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.gonggoose.R
+import com.example.gonggoose.navigation.LocalNavGraphViewModelStoreOwner
 import com.example.gonggoose.ui.theme.DarkGray
+import com.example.gonggoose.viewmodel.HomeViewModel
 
 @SuppressLint("UnrememberedMutableState")
 @Composable
 fun PostInputField() {
+
+    val viewModel: HomeViewModel =
+        viewModel(viewModelStoreOwner = LocalNavGraphViewModelStoreOwner.current)
+
     var total_member by remember {
         mutableIntStateOf(0)
     }
@@ -88,6 +96,8 @@ fun PostInputField() {
             onValueChange = {
                 if(it.length <= 200){
                     content = it
+                    viewModel.createPostInfo.component1().content = it
+//                    Log.d("memememememememe", viewModel.createPostInfo.component1().content.toString())
                 }
             },
             decorationBox = {innerTextField ->
