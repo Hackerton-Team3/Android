@@ -8,6 +8,7 @@ import com.example.gonggoose.data.CreatePostRequest
 import com.example.gonggoose.data.DetailPostInfo
 import com.example.gonggoose.data.PostItem
 import com.example.gonggoose.data.UserInfo
+import com.example.gonggoose.utils.getUserId
 import com.example.gonggoose.utils.network.Repository
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -95,14 +96,16 @@ class HomeViewModel : ViewModel() {
 
 
     fun createPostRequestFun(){
-        val createPostRequest = CreatePostRequest(
-            deadline = createPostInfo.component1().deadline!!,
-            writer_id = getUserId(),
-            title = createPostInfo.component1().title!!,
-            max_user_number = createPostInfo.component1().total_member!!,
-            expected_price = createPostInfo.component1().price!!,
-            content = createPostInfo.component1().content!!
-        )
+        val createPostRequest = getUserId()?.let {
+            CreatePostRequest(
+                deadline = createPostInfo.component1().deadline!!,
+                writer_id = it,
+                title = createPostInfo.component1().title!!,
+                max_user_number = createPostInfo.component1().total_member!!,
+                expected_price = createPostInfo.component1().price!!,
+                content = createPostInfo.component1().content!!
+            )
+        }
 
         val imageParts = mutableListOf<MultipartBody.Part>()
 
@@ -113,6 +116,8 @@ class HomeViewModel : ViewModel() {
             imageParts.add(part)
         }
 
-        repository.createPostAPI(imageParts,createPostRequest)
+        if (createPostRequest != null) {
+            repository.createPostAPI(imageParts,createPostRequest)
+        }
     }
 }
