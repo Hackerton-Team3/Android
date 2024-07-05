@@ -73,6 +73,11 @@ dependencies {
     //material
     implementation(libs.material)
     implementation(libs.ui)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.compose)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.pager.indicators)
+    implementation(libs.coil.compose)
 
     //univcert
     implementation(libs.univcert){

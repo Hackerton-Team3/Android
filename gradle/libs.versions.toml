@@ -16,6 +16,12 @@ navigationUiKtx = "2.8.0-beta04"
 navigationCompose = "2.8.0-beta04"
 material = "1.13.0-alpha03"
 ui = "1.7.0-beta04"
+coreKtxVersion = "1.15.0-alpha01"
+lifecycleViewmodelCompose = "2.8.3"
+compose = "1.0.0-beta01"
+accompanistPager = "0.35.1-alpha"
+accompanistPagerIndicators = "0.35.1-alpha"
+coilCompose = "2.6.0"
 univcert = "master-SNAPSHOT"
 kotlinxCoroutinesAndroid = "1.9.0-RC"
 jacksonAnnotations = "2.17.1"
@@ -47,6 +53,12 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtxVersion" }
+androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "compose" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanistPager" }
+accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanistPagerIndicators" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
 univcert = { group = "com.github.in-seo", name = "univcert", version.ref = "univcert" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
 jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations", version.ref = "jacksonAnnotations" }
