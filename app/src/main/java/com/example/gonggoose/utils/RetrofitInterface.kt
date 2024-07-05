@@ -1,5 +1,6 @@
 package com.example.gonggoose.utils
 
+
 interface RetrofitInterface {
 
     // 작성예시
