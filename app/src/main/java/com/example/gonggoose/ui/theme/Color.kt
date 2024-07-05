@@ -19,3 +19,8 @@ val LivingCoral = Color(android.graphics.Color.parseColor("#FF6F61"))
 val LightGray = Color(android.graphics.Color.parseColor("#D9D9D9"))
 val MediumGray = Color(android.graphics.Color.parseColor("#A8A8A8"))
 val DarkGray = Color(android.graphics.Color.parseColor("#4A4A4A"))
+val LightBlue = Color(android.graphics.Color.parseColor("#A7C7E7"))
+val SoftBlack = Color(android.graphics.Color.parseColor("#494949"))
+
+val Black = Color.Black
+val White = Color.White

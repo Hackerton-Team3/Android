@@ -12,4 +12,6 @@
 <!--    버튼-->
     <dimen name="btn_inner_padding_vertical_4">4dp</dimen>
     <dimen name="btn_inner_padding_horizontal_10">10dp</dimen>
+
+    <dimen name="padding_between_icon_and_text_vertical_2">2dp</dimen>
 </resources>

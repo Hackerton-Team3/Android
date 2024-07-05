@@ -1,6 +1,7 @@
 package com.example.gonggoose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,7 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.gonggoose.navigation.NavGraph
+import com.example.gonggoose.ui.screen.HomeScreen
 import com.example.gonggoose.ui.theme.GongGooseTheme
+import com.kakao.sdk.common.util.Utility
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,8 +31,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //실제 실행 코드
-//                    val navController = rememberNavController()
-//                    NavGraph(navController = navController)
+                    val navController = rememberNavController()
+                    NavGraph(navController = navController)
+
+//                    var keyHash = Utility.getKeyHash(this)
+//                    Log.i("GlobalApplication", "$keyHash")
 
                     //테스트 코드 작성
 
