@@ -68,20 +68,30 @@ fun NavGraph(navController: NavHostController) {
     CompositionLocalProvider(
         LocalNavGraphViewModelStoreOwner provides navStoreOwner
     ) {
-        NavHost(navController = navController, startDestination = Routes.Home.route) {
+        NavHost(navController = navController, startDestination = Routes.Login.route) {
 
             composable(Routes.Login.route) {
-
+                LoginScreen(navController)
             }
 
             navigation(startDestination = Routes.EnterNickName.route, route = "signup") {
                 composable(Routes.EnterNickName.route) {
-
+                    EnterNickNameScreen(navController)
                 }
+
                 composable(Routes.SchoolVerification.route) {
+                    SchoolVerificationScreen(navController)
+                }
+            }
 
+            navigation(startDestination = Routes.EnterNickName.route, route = "chat") {
+                composable(Routes.ChatRoom.route) {
+                    ChatRoomScreen() //TODO : Scaffold로 수정
                 }
 
+                composable(Routes.ChatMessage.route) {
+                    ChatMessageScreen() //TODO : Scaffold로 수정
+                }
             }
 
             navigation(startDestination = Routes.Home.route, route = "home") {

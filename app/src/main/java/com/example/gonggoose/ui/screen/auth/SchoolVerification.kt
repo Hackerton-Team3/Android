@@ -33,7 +33,9 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.gonggoose.R
+import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.ui.component.InputTextFieldWithoutSubText
 import com.example.gonggoose.ui.theme.LivingCoral
 import com.example.gonggoose.ui.theme.RoyalBlue
@@ -45,7 +47,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 @Composable
-fun SchoolVerificationScreen() {
+fun SchoolVerificationScreen(navController: NavController) {
 
     Column(
         modifier = Modifier
@@ -185,6 +187,7 @@ fun SchoolVerificationScreen() {
 
                 } else {
                     // 시작하기
+                    navController.navigate(Routes.Home.route)
                 }
             }
         ) {

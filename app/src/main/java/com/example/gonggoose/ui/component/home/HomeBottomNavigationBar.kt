@@ -4,7 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -22,9 +26,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.gonggoose.R
@@ -37,7 +44,8 @@ import com.example.gonggoose.ui.theme.White
 fun BottomNavigationBar(navController: NavController) {
 
     Box(
-        modifier = Modifier.height(130.dp)
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.BottomCenter
     ){
         NavigationBar (
             containerColor = RoyalBlue,
@@ -64,22 +72,27 @@ fun BottomNavigationBar(navController: NavController) {
                     },
 
                     icon = {
-                        Icon(
-                            painter = painterResource(id = item.icon),
-                            contentDescription = item.name,
-                            tint = White,
-                            modifier = Modifier.size(28.dp)
-                        )
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Icon(
+                                painter = painterResource(id = item.icon),
+                                contentDescription = item.name,
+                                tint = Color.White,
+                                modifier = Modifier.size(28.dp)
+                            )
+                            Text(
+                                modifier = Modifier.padding(top = 2.dp),
+                                text = item.name,
+                                color = Color.White,
+                                fontSize = 13.sp,
+                                fontFamily = FontFamily(Font(R.font.noto_sans_kr_medium)),
+                                style = TextStyle(lineHeight = TextUnit.Unspecified)
+                            )
+                        }
                     },
-
-                    label = {
-                        Text(
-                            text = item.name,
-                            color = Color.White,
-                            fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
-                            modifier = Modifier.padding(top = dimensionResource(id = R.dimen.padding_between_icon_and_text_vertical_2))
-                        )
-                    },
+                    label = { null } // label을 사용하지 않도록 설정
                 )
             }
         }
