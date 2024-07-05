@@ -4,12 +4,18 @@ import android.content.Context
 import android.util.Log
 import androidx.navigation.NavController
 import com.example.gonggoose.navigation.Routes
+import com.example.gonggoose.repository.confirmDuplicate
+import com.example.gonggoose.utils.saveKakaoId
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.Constants.TAG
 import com.kakao.sdk.user.UserApiClient
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 fun kakaoTalkLogin(context: Context) {
     // 카카오계정으로 로그인 공통 callback 구성
@@ -55,19 +61,21 @@ fun kakaoLogin(context: Context, navController : NavController){
         }
         else if (token != null) {
             Log.i(TAG, "로그인 성공 ${token.accessToken}")
-            //navController.navigate(Routes.EnterNickName.route)
-            navController.navigate(Routes.Home.route)
+
+            CoroutineScope(Dispatchers.Main).launch {
+                getUserInfo()?.let { saveKakaoId(it) }
+                confirmDuplicate(navController)
+            }
         }
     }
 }
 
-suspend fun getUserInfo() {
+suspend fun getUserInfo(): String? {
     return suspendCancellableCoroutine { continuation ->
         UserApiClient.instance.me { user, error ->
             if (error != null) {
                 Log.e(TAG, "사용자 정보 요청 실패", error)
-//                continuation.resume(null)
-
+                continuation.resume(null)
             } else if (user != null) {
                 Log.i(
                     "사용자정보", "사용자 정보 요청 성공" +
@@ -77,13 +85,9 @@ suspend fun getUserInfo() {
                             "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}" +
                             "\n전화번호: ${user.kakaoAccount?.phoneNumber}"
                 )
-
-//                val kakaoUserInfo =
-//                    user.kakaoAccount?.phoneNumber?.let { KakaoUserInfo(user.id, it) }
-//                continuation.resume(kakaoUserInfo)
-
+                continuation.resume(user.id.toString())
             } else {
-//                continuation.resume(null)
+                continuation.resume(null)
             }
         }
     }
