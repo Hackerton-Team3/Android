@@ -7,14 +7,20 @@ import okhttp3.RequestBody
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import com.example.gonggoose.data.ApiResponse
+import com.example.gonggoose.data.SignUp
+import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
+
 
 interface RetrofitInterface {
 
     // 작성예시
-    /*
-    @POST("/login/sign-in")
-    fun getToken(@Body kakaoId : Long) : Call<Token>
-    */
+    @POST("/users")
+    fun signUp(@Body signUp : SignUp) : Call<ApiResponse>
 
     @Multipart
     @POST("/bulletins")
@@ -23,4 +29,6 @@ interface RetrofitInterface {
         @Part request: CreatePostRequest
     ): CreatePostResponse
 
+    @GET("/users/{kakaoId}")
+    fun confirmDuplicate(@Path("kakaoId") kakaoId: String) : Call<ApiResponse>
 }

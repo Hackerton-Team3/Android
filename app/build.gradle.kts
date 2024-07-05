@@ -79,6 +79,18 @@ dependencies {
     implementation(libs.accompanist.pager.indicators)
     implementation(libs.coil.compose)
 
+    //univcert
+    implementation(libs.univcert){
+        exclude(group = "org.hamcrest", module = "hamcrest-core")
+    }
+
+    //코루틴
+    implementation(libs.kotlinx.coroutines.android)
+
+    //이미지싱크
+    implementation(libs.coil.compose)
+    implementation(libs.androidx.runtime.livedata)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

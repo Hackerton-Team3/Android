@@ -31,7 +31,8 @@ fun InputTextField(
     maxLength : Int, //최대 글자 수
     characterCount : Int, //글자 수
     onValueChange: (String) -> Unit,
-    enabled : Boolean = true
+    enabled : Boolean = true,
+    selectedColor : Color = DarkGray
 ) {
     BasicTextField(
         modifier = Modifier
@@ -67,6 +68,7 @@ fun InputTextField(
                                 fontSize = 13.sp,
                                 color = DarkGray,
                                 style = TextStyle(lineHeight = TextUnit.Unspecified)
+                          
                             )
                         }
                         innerTextField()
@@ -79,14 +81,14 @@ fun InputTextField(
                         text = "$characterCount/$maxLength",
                         fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                         fontSize = 11.sp,
-                        color = DarkGray
+                        color = DarkGray,
+                        style = TextStyle(lineHeight = TextUnit.Unspecified) //text 기본 높이 삭제
                     )
                 }
 
                 Divider(
                     modifier = Modifier.padding(top = 8.dp),
-                    color = DarkGray
-                    // TODO: 입력 시 색상 변경
+                    color = if (value.isEmpty()) DarkGray else selectedColor
                 )
 
                 Text(
@@ -96,6 +98,63 @@ fun InputTextField(
                     fontSize = 11.sp,
                     color = Color.Black,
                     style = TextStyle(lineHeight = TextUnit.Unspecified)
+
+                )
+
+            }
+        }
+    )
+}
+
+@Composable
+fun InputTextFieldWithoutSubText(
+    paddingValues: PaddingValues = PaddingValues(0.dp), //양옆 패딩 (피그마 : 보통 35dp)
+    value : String, //입력된 텍스트
+    hint : String, //힌트
+    onValueChange: (String) -> Unit,
+    enabled : Boolean = true,
+    selectedColor : Color = DarkGray
+) {
+    BasicTextField(
+        modifier = Modifier
+            .padding(paddingValues),
+        value = value,
+        enabled = enabled,
+        onValueChange = {
+                onValueChange(it)
+        },
+        textStyle = TextStyle(
+            fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
+            fontSize = 13.sp,
+            color = Color.Black
+        ),
+        singleLine = true,
+        decorationBox = { innerTextField ->
+            Column {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+
+                ) {
+
+                    Box {
+                        if (value.isEmpty()) {
+                            Text(
+                                text = "$hint",
+                                fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
+                                fontSize = 13.sp,
+                                color = DarkGray,
+                                style = TextStyle(lineHeight = TextUnit.Unspecified) //text 기본 높이 삭제
+                            )
+                        }
+                        innerTextField()
+                    }
+
+                }
+
+                Divider(
+                    modifier = Modifier.padding(top = 8.dp),
+                    color = if (value.isEmpty()) DarkGray else selectedColor
                 )
 
             }

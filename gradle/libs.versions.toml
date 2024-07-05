@@ -22,6 +22,12 @@ compose = "1.0.0-beta01"
 accompanistPager = "0.35.1-alpha"
 accompanistPagerIndicators = "0.35.1-alpha"
 coilCompose = "2.6.0"
+univcert = "master-SNAPSHOT"
+kotlinxCoroutinesAndroid = "1.9.0-RC"
+jacksonAnnotations = "2.17.1"
+jsonSimple = "1.1.1"
+benchmarks = "2.7.5"
+runtimeLivedata = "1.6.8"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -52,6 +58,12 @@ compose = { group = "com.github.bumptech.glide", name = "compose", version.ref =
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanistPager" }
 accompanist-pager-indicators = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanistPagerIndicators" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
+univcert = { group = "com.github.in-seo", name = "univcert", version.ref = "univcert" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+jackson-annotations = { group = "com.fasterxml.jackson.core", name = "jackson-annotations", version.ref = "jacksonAnnotations" }
+json-simple = { group = "com.googlecode.json-simple", name = "json-simple", version.ref = "jsonSimple" }
+benchmarks = { group = "com.squareup.okhttp", name = "benchmarks", version.ref = "benchmarks" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

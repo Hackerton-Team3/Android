@@ -17,6 +17,12 @@ import com.example.gonggoose.ui.screen.CreatePostScreen
 import com.example.gonggoose.ui.screen.DetailPostScreen
 import com.example.gonggoose.ui.screen.HomeScreen
 import com.example.gonggoose.ui.screen.MyPageScreen
+import com.example.gonggoose.ui.screen.auth.EnterNickNameScreen
+import com.example.gonggoose.ui.screen.auth.LoginScreen
+import com.example.gonggoose.ui.screen.auth.SchoolVerificationScreen
+import com.example.gonggoose.ui.screen.auth.SplashScreen
+import com.example.gonggoose.ui.screen.chat.ChatMessageScreen
+import com.example.gonggoose.ui.screen.chat.ChatRoomScreen
 
 sealed class Routes(val route: String) {
 
@@ -26,6 +32,10 @@ sealed class Routes(val route: String) {
     //sign up
     data object EnterNickName : Routes("signup/nickName")
     data object SchoolVerification : Routes("signup/school")
+
+    //chat
+    data object ChatMessage : Routes("chat/message")
+    data object ChatRoom : Routes("chat/room")
 
     //home
     data object Home : Routes("home/Home")
@@ -59,18 +69,33 @@ fun NavGraph(navController: NavHostController) {
     CompositionLocalProvider(
         LocalNavGraphViewModelStoreOwner provides navStoreOwner
     ) {
-        NavHost(navController = navController, startDestination = Routes.Home.route) {
+        NavHost(navController = navController, startDestination = Routes.Splash.route) {
+
+            composable(Routes.Splash.route) {
+                SplashScreen(navController)
+            }
 
             composable(Routes.Login.route) {
-
+                LoginScreen(navController)
             }
 
             navigation(startDestination = Routes.EnterNickName.route, route = "signup") {
                 composable(Routes.EnterNickName.route) {
-
+                    EnterNickNameScreen(navController)
                 }
-                composable(Routes.SchoolVerification.route) {
 
+                composable(Routes.SchoolVerification.route) {
+                    SchoolVerificationScreen(navController)
+                }
+            }
+
+            navigation(startDestination = Routes.EnterNickName.route, route = "chat") {
+                composable(Routes.ChatRoom.route) {
+                    ChatRoomScreen(navController = navController)
+                }
+
+                composable(Routes.ChatMessage.route) {
+                    ChatMessageScreen()
                 }
             }
 
@@ -101,7 +126,8 @@ fun NavGraph(navController: NavHostController) {
                 it.arguments?.getLong("postId")
                     ?.let { it1 -> DetailPostScreen(navController = navController, postId = it1) }
             }
+
+
         }
     }
-
 }
