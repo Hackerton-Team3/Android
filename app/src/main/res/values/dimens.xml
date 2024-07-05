@@ -7,6 +7,8 @@
     <dimen name="screen_padding_top_30">30dp</dimen>
     <dimen name="screen_padding_bottom_30">30dp</dimen>
     <dimen name="screen_padding_horizontal_30">30dp</dimen>
+    <dimen name="screen_padding_horizontal_20">20dp</dimen>
+    <dimen name="screen_padding_horizontal_25">25dp</dimen>
     <dimen name="screen_padding_horizontal_35">35dp</dimen>
 
     <dimen name="padding_15">15dp</dimen>
@@ -14,5 +16,6 @@
 
 <!--    버튼-->
     <dimen name="btn_inner_padding_vertical_4">4dp</dimen>
+    <dimen name="btn_inner_padding_vertical_8">8dp</dimen>
     <dimen name="btn_inner_padding_horizontal_10">10dp</dimen>
 </resources>

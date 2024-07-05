@@ -8,15 +8,13 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.gonggoose.navigation.NavGraph
-import com.example.gonggoose.ui.screen.auth.EnterNickNameScreen
 import com.example.gonggoose.ui.screen.auth.LoginScreen
-import com.example.gonggoose.ui.screen.auth.SchoolVerificationScreen
+import com.example.gonggoose.ui.screen.auth.SplashScreen
+import com.example.gonggoose.ui.screen.chat.ChatMessageScreen
+import com.example.gonggoose.ui.screen.chat.ChatRoomScreen
 import com.example.gonggoose.ui.theme.GongGooseTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,11 +31,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //실제 실행 코드
-//                    val navController = rememberNavController()
-//                    NavGraph(navController = navController)
+                    val navController = rememberNavController()
+                    NavGraph(navController = navController)
 
                     //테스트 코드 작성
-                    SchoolVerificationScreen()
 
                 }
             }

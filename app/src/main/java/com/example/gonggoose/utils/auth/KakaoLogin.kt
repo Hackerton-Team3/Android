@@ -2,6 +2,8 @@ package com.example.gonggoose.utils.auth
 
 import android.content.Context
 import android.util.Log
+import androidx.navigation.NavController
+import com.example.gonggoose.navigation.Routes
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
@@ -45,7 +47,7 @@ fun kakaoTalkLogin(context: Context) {
 }
 
 
-fun kakaoLogin(context: Context){
+fun kakaoLogin(context: Context, navController : NavController){
     // 카카오계정으로 로그인
     UserApiClient.instance.loginWithKakaoAccount(context) { token, error ->
         if (error != null) {
@@ -53,7 +55,7 @@ fun kakaoLogin(context: Context){
         }
         else if (token != null) {
             Log.i(TAG, "로그인 성공 ${token.accessToken}")
-
+            navController.navigate(Routes.EnterNickName.route)
         }
     }
 }
