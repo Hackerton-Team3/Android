@@ -9,7 +9,8 @@ import androidx.navigation.navigation
 import com.example.gonggoose.ui.screen.auth.EnterNickNameScreen
 import com.example.gonggoose.ui.screen.auth.LoginScreen
 import com.example.gonggoose.ui.screen.auth.SchoolVerificationScreen
-import java.util.concurrent.ScheduledExecutorService
+import com.example.gonggoose.ui.screen.chat.ChatMessageScreen
+import com.example.gonggoose.ui.screen.chat.ChatRoomScreen
 
 sealed class Routes(val route: String) {
 
@@ -20,6 +21,10 @@ sealed class Routes(val route: String) {
     data object EnterNickName : Routes("signup/nickName")
     data object SchoolVerification : Routes("signup/school")
 
+    //chat
+    data object ChatMessage : Routes("chat/message")
+    data object ChatRoom : Routes("chat/room")
+
     //home
     data object Home : Routes("home/Home")
 
@@ -29,26 +34,31 @@ sealed class Routes(val route: String) {
 @Composable
 fun NavGraph(navController: NavHostController) {
 
-    NavHost(navController = navController, startDestination = Routes.Splash.route) {
-
+    NavHost(navController = navController, startDestination = Routes.Login.route) {
         composable(Routes.Login.route) {
-            LoginScreen()
+            LoginScreen(navController)
         }
 
         navigation(startDestination = Routes.EnterNickName.route, route = "signup") {
             composable(Routes.EnterNickName.route) {
-                EnterNickNameScreen()
+                EnterNickNameScreen(navController)
             }
+
             composable(Routes.SchoolVerification.route) {
                 SchoolVerificationScreen()
             }
         }
 
-        navigation(startDestination = Routes.EnterNickName.route, route = "home") {
-            composable(Routes.Home.route) {
-
+        navigation(startDestination = Routes.EnterNickName.route, route = "chat") {
+            composable(Routes.ChatRoom.route) {
+                ChatRoomScreen() //TODO : Scaffold로 수정
             }
+
+            composable(Routes.ChatMessage.route) {
+                ChatMessageScreen() //TODO : Scaffold로 수정
+            }
+
+
         }
     }
-
 }

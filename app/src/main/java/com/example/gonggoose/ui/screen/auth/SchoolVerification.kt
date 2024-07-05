@@ -177,7 +177,7 @@ fun SchoolVerificationScreen() {
                             }
 
                             isVerified = true
-                        } catch (e: Exception) {85
+                        } catch (e: Exception) {
                             e.printStackTrace()
                             Log.e("대학교 인증 실패", "정보가 잘못되었습니다.", e)
                         }

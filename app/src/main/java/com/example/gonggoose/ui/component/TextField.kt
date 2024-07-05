@@ -32,7 +32,8 @@ fun InputTextField(
     maxLength : Int, //최대 글자 수
     characterCount : Int, //글자 수
     onValueChange: (String) -> Unit,
-    enabled : Boolean = true
+    enabled : Boolean = true,
+    selectedColor : Color = DarkGray
 ) {
     BasicTextField(
         modifier = Modifier
@@ -87,8 +88,7 @@ fun InputTextField(
 
                 Divider(
                     modifier = Modifier.padding(top = 8.dp),
-                    color = DarkGray
-                    // TODO: 입력 시 색상 변경
+                    color = if (value.isEmpty()) DarkGray else selectedColor
                 )
 
                 Text(
@@ -112,7 +112,7 @@ fun InputTextFieldWithoutSubText(
     hint : String, //힌트
     onValueChange: (String) -> Unit,
     enabled : Boolean = true,
-    selectedColor : Color
+    selectedColor : Color = DarkGray
 ) {
     BasicTextField(
         modifier = Modifier
@@ -153,8 +153,7 @@ fun InputTextFieldWithoutSubText(
 
                 Divider(
                     modifier = Modifier.padding(top = 8.dp),
-                    color = DarkGray
-                    // TODO: 입력 시 색상 변경
+                    color = if (value.isEmpty()) DarkGray else selectedColor
                 )
 
             }
