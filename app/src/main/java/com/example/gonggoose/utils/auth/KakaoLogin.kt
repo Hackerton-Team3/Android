@@ -55,7 +55,8 @@ fun kakaoLogin(context: Context, navController : NavController){
         }
         else if (token != null) {
             Log.i(TAG, "로그인 성공 ${token.accessToken}")
-            navController.navigate(Routes.EnterNickName.route)
+            //navController.navigate(Routes.EnterNickName.route)
+            navController.navigate(Routes.Home.route)
         }
     }
 }
