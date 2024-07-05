@@ -1,10 +1,9 @@
-package com.example.gonggoose.ui.component
+package com.example.gonggoose.ui.component.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
@@ -16,10 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -28,7 +25,7 @@ import com.bumptech.glide.integration.compose.GlideImage
 import com.example.gonggoose.R
 import com.example.gonggoose.data.PostItem
 import com.example.gonggoose.navigation.Routes
-import com.example.gonggoose.ui.theme.GongGooseTheme
+import com.example.gonggoose.ui.component.CustomRoundedBox
 import com.example.gonggoose.ui.theme.MediumGray
 import com.example.gonggoose.ui.theme.Orange
 import com.example.gonggoose.ui.theme.White

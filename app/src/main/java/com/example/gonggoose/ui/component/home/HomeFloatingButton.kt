@@ -1,4 +1,4 @@
-package com.example.gonggoose.ui.component
+package com.example.gonggoose.ui.component.home
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape

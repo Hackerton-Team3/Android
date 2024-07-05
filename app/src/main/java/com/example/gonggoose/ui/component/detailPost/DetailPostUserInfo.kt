@@ -1,4 +1,4 @@
-package com.example.gonggoose.ui.component
+package com.example.gonggoose.ui.component.detailPost
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,6 +25,7 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.example.gonggoose.R
 import com.example.gonggoose.navigation.LocalNavGraphViewModelStoreOwner
+import com.example.gonggoose.ui.component.CustomRoundedBox
 import com.example.gonggoose.ui.theme.MediumGray
 import com.example.gonggoose.ui.theme.Orange
 import com.example.gonggoose.ui.theme.White

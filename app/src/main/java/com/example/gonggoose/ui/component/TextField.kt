@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.gonggoose.R
@@ -62,11 +63,11 @@ fun InputTextField(
                     Box {
                         if (value.isEmpty()) {
                             Text(
-                                modifier = Modifier.height(21.dp),
                                 text = "$hint",
                                 fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                                 fontSize = 13.sp,
-                                color = DarkGray
+                                color = DarkGray,
+                                style = TextStyle(lineHeight = TextUnit.Unspecified)
                             )
                         }
                         innerTextField()
@@ -94,7 +95,8 @@ fun InputTextField(
                     text = "최대 ${maxLength}자 입력이 가능합니다",
                     fontFamily = FontFamily(Font(R.font.noto_sans_kr_regular)),
                     fontSize = 11.sp,
-                    color = Color.Black
+                    color = Color.Black,
+                    style = TextStyle(lineHeight = TextUnit.Unspecified)
                 )
 
             }

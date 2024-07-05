@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -26,10 +25,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.gonggoose.R
 import com.example.gonggoose.navigation.LocalNavGraphViewModelStoreOwner
-import com.example.gonggoose.ui.component.BottomNavigationBar
-import com.example.gonggoose.ui.component.FloatingButton
-import com.example.gonggoose.ui.component.PostItemUi
-import com.example.gonggoose.ui.component.TopBar
+import com.example.gonggoose.ui.component.home.BottomNavigationBar
+import com.example.gonggoose.ui.component.home.FloatingButton
+import com.example.gonggoose.ui.component.home.PostItemUi
+import com.example.gonggoose.ui.component.home.TopBar
 import com.example.gonggoose.viewmodel.HomeViewModel
 
 @Composable

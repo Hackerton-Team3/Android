@@ -1,4 +1,4 @@
-package com.example.gonggoose.ui.component
+package com.example.gonggoose.ui.component.detailPost
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

@@ -73,7 +73,7 @@ fun NavGraph(navController: NavHostController) {
                 }
             }
 
-            navigation(startDestination = Routes.EnterNickName.route, route = "home") {
+            navigation(startDestination = Routes.Home.route, route = "home") {
                 composable(Routes.Home.route) {
                     HomeScreen(navController)
                 }
@@ -81,9 +81,11 @@ fun NavGraph(navController: NavHostController) {
             composable(Routes.Home.route) {
                 HomeScreen(navController)
             }
+
             composable(Routes.CreatePost.route) {
                 CreatePostScreen(navController)
             }
+
             composable(Routes.DetailPost.route + "?postid={postId}",
                 arguments = listOf(
                     navArgument(name = "postId")

@@ -5,17 +5,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.gonggoose.navigation.LocalNavGraphViewModelStoreOwner
-import com.example.gonggoose.ui.component.DetailPostBottomBar
-import com.example.gonggoose.ui.component.DetailPostContent
-import com.example.gonggoose.ui.component.DetailPostTopBar
-import com.example.gonggoose.ui.component.DetailPostUserInfo
-import com.example.gonggoose.ui.component.DetailPostViewPager
+import com.example.gonggoose.ui.component.detailPost.DetailPostBottomBar
+import com.example.gonggoose.ui.component.detailPost.DetailPostContent
+import com.example.gonggoose.ui.component.detailPost.DetailPostTopBar
+import com.example.gonggoose.ui.component.detailPost.DetailPostUserInfo
+import com.example.gonggoose.ui.component.detailPost.DetailPostViewPager
 import com.example.gonggoose.viewmodel.HomeViewModel
 
 @Composable

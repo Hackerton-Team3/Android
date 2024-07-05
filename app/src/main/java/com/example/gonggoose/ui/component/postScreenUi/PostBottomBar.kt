@@ -10,6 +10,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -38,7 +40,7 @@ fun PostBottomBar(navController: NavController) {
                 vertical = dimensionResource(id = R.dimen.screen_padding_horizontal_30)
             )
             .background(
-                color = if(viewModel.isFillAllPostInfo()) LightBlue else MediumGray,
+                color = if (viewModel.isFillAllPostInfo()) LightBlue else MediumGray,
                 shape = RoundedCornerShape(16.dp)
             )
             .fillMaxWidth()
@@ -51,23 +53,4 @@ fun PostBottomBar(navController: NavController) {
             modifier = Modifier.align(Alignment.Center)
         )
     }
-//    Button(
-//        onClick = {
-//            viewModel.createPost()
-//            navController.navigate("Home")
-//        },
-//        modifier = Modifier
-//            .padding(
-//                horizontal = dimensionResource(id = R.dimen.screen_padding_horizontal_35),
-//                vertical = dimensionResource(id = R.dimen.screen_padding_horizontal_30)
-//            )
-//            .width(323.dp)
-//            .height(54.dp)
-//
-//    ) {
-//        Text(
-//            text = "등록하기",
-//            fontSize = 15.sp
-//        )
-//    }
 }

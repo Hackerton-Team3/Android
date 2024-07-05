@@ -3,6 +3,8 @@ package com.example.gonggoose.ui.screen
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -21,6 +23,7 @@ import com.example.gonggoose.R
 import com.example.gonggoose.ui.component.InputTextField
 import com.example.gonggoose.ui.component.postScreenUi.PostBottomBar
 import com.example.gonggoose.ui.component.postScreenUi.PostDateComponent
+import com.example.gonggoose.ui.component.postScreenUi.PostInputField
 import com.example.gonggoose.ui.component.postScreenUi.PostPictureComponent
 import com.example.gonggoose.ui.component.postScreenUi.PostTimeComponent
 import com.example.gonggoose.ui.component.postScreenUi.PostTopBar
@@ -31,6 +34,8 @@ fun CreatePostScreen(navController: NavController) {
     var title by remember {
         mutableStateOf("")
     }
+
+    val scrollState = rememberScrollState()
 
     Scaffold (
         topBar = { PostTopBar() },
@@ -48,7 +53,8 @@ fun CreatePostScreen(navController: NavController) {
                     .padding(
                         horizontal = dimensionResource(id = R.dimen.screen_padding_horizontal_35),
                         vertical = dimensionResource(id = R.dimen.screen_padding_horizontal_30)
-                    ),
+                    )
+                    .verticalScroll(scrollState),
 //                horizontalAlignment = Alignment.CenterHorizontally
             ){
 
@@ -79,6 +85,8 @@ fun CreatePostScreen(navController: NavController) {
                 )
 
                 PostPictureComponent()
+
+                PostInputField()
             }
         }
     }
