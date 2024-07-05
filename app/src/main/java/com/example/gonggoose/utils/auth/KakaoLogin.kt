@@ -3,7 +3,6 @@ package com.example.gonggoose.utils.auth
 import android.content.Context
 import android.util.Log
 import androidx.navigation.NavController
-import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.repository.confirmDuplicate
 import com.example.gonggoose.utils.saveKakaoId
 import com.kakao.sdk.auth.model.OAuthToken

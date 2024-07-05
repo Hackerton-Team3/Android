@@ -3,7 +3,7 @@ package com.example.gonggoose.utils
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "https://aiku.asia" //연결할 서버의 주소
+const val BASE_URL = "https://0f31-2001-2d8-f191-71af-1d65-d1be-8705-a728.ngrok-free.app" //연결할 서버의 주소
 const val UNIV_URL = "https://api.univcert.com/"
 
 

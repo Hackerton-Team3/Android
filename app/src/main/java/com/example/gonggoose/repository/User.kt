@@ -3,9 +3,11 @@ package com.example.gonggoose.repository
 import android.util.Log
 import androidx.navigation.NavController
 import com.example.gonggoose.data.ApiResponse
+import com.example.gonggoose.data.ApiResponse2
 import com.example.gonggoose.data.SignUp
 import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.utils.RetrofitInterface
+import com.example.gonggoose.utils.getKakaoId
 import com.example.gonggoose.utils.getRetrofit
 import com.example.gonggoose.utils.getSignUp
 import com.example.gonggoose.utils.saveUserId
@@ -40,16 +42,16 @@ fun signUp(signUp: SignUp, navController: NavController) {
 
 fun confirmDuplicate(navController: NavController) {
     val retrofitInterface = getRetrofit().create(RetrofitInterface::class.java)
-    getSignUp()?.let {
-        retrofitInterface.confirmDuplicate(it.kakaoId)
-        .enqueue(object : Callback<ApiResponse> {
-            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+    getKakaoId()?.let {
+        retrofitInterface.confirmDuplicate(it)
+        .enqueue(object : Callback<ApiResponse2> {
+            override fun onResponse(call: Call<ApiResponse2>, response: Response<ApiResponse2>) {
                 Log.d("API - 유저 유무 조회", "onResponse: ${response.code()}")
                 if (response.isSuccessful) {
                     val resp = response.body()
                     if (resp != null) {
                         if (resp != null) {
-                            saveUserId(resp.result.userId)
+                            saveUserId(resp.result)
                         }
                     }
                     navController.navigate(Routes.Home.route)
@@ -58,9 +60,10 @@ fun confirmDuplicate(navController: NavController) {
                     navController.navigate(Routes.EnterNickName.route)
                 }
             }
-            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+            override fun onFailure(call: Call<ApiResponse2>, t: Throwable) {
                 Log.e("API - 유저 유무 조회", "onFailure", t)
             }
         })
     }
+
 }
