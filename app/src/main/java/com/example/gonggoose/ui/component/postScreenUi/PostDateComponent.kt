@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -32,7 +33,7 @@ import java.util.Calendar
 import java.util.Locale
 
 @Composable
-fun PostDateComponent() {
+fun PostDateComponent() : Calendar? {
     var selectedDate by remember { mutableStateOf(Calendar.getInstance()) }
     var showDialog by remember { mutableStateOf(false) }
 
@@ -75,6 +76,7 @@ fun PostDateComponent() {
             }
         }
     }
+    return selectedDate;
 }
 
 fun Calendar.getFormattedDateString(): String {
