@@ -1,5 +1,6 @@
 package com.example.gonggoose.ui.screen
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -18,8 +19,10 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.integerResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.gonggoose.R
+import com.example.gonggoose.navigation.LocalNavGraphViewModelStoreOwner
 import com.example.gonggoose.ui.component.InputTextField
 import com.example.gonggoose.ui.component.postScreenUi.PostBottomBar
 import com.example.gonggoose.ui.component.postScreenUi.PostDateComponent
@@ -27,15 +30,27 @@ import com.example.gonggoose.ui.component.postScreenUi.PostInputField
 import com.example.gonggoose.ui.component.postScreenUi.PostPictureComponent
 import com.example.gonggoose.ui.component.postScreenUi.PostTimeComponent
 import com.example.gonggoose.ui.component.postScreenUi.PostTopBar
+import com.example.gonggoose.ui.component.postScreenUi.getInitialTime
+import com.example.gonggoose.viewmodel.HomeViewModel
+import java.util.Calendar
 
 @Composable
 fun CreatePostScreen(navController: NavController) {
+
+    val viewModel: HomeViewModel =
+        viewModel(viewModelStoreOwner = LocalNavGraphViewModelStoreOwner.current)
 
     var title by remember {
         mutableStateOf("")
     }
 
     val scrollState = rememberScrollState()
+
+    var selectedDate by remember { mutableStateOf(Calendar.getInstance()) }
+    var selectedTime by remember { mutableStateOf(getInitialTime()) }
+
+    viewModel.createPostInfo.component1().deadline = viewModel.mergeDateTime(selectedDate,selectedTime)
+//    Log.d("memememememememe", viewModel.createPostInfo.component1().deadline.toString())
 
     Scaffold (
         topBar = { PostTopBar() },
@@ -81,6 +96,8 @@ fun CreatePostScreen(navController: NavController) {
                     characterCount = title.length,
                     onValueChange = {
                         title = it
+                        viewModel.createPostInfo.component1().title = it
+//                        Log.d("memememememememe", viewModel.createPostInfo.component1().title.toString())
                     }
                 )
 
