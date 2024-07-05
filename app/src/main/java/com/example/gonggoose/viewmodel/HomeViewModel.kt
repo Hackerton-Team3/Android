@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.gonggoose.data.CreatePostInfo
 import com.example.gonggoose.data.DetailPostInfo
 import com.example.gonggoose.data.PostItem
+import com.example.gonggoose.data.UserInfo
 import java.time.LocalDateTime
 
 class HomeViewModel : ViewModel() {
@@ -27,6 +28,15 @@ class HomeViewModel : ViewModel() {
 
     var detailPostInfo = mutableStateOf<DetailPostInfo>(
         DetailPostInfo(listOf(), "진행 중", "청심대에서 건구스랑 놀 사람 아ㅓㄹ아ㅓㄹ;머라;마ㅣㅓ람ㅇ러ㅏㅓ모라ㅣ머ㅗㄹㅁㄹ", 7, 100, LocalDateTime.of(2024,7,5, 17,0), null, "건구스구스", "건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ 건구스랑 놀아보자아아아아아아ㅏㅇ ")
+    )
+
+    var userInfo = mutableStateOf<UserInfo>(
+        UserInfo(1,null, "건국대학교 서울캠퍼스", "건구스구스", listOf(
+            PostItem(1,null,"진행 중","청심대에서 건구스랑 놀 사람",3,10),
+            PostItem(1,null,"마감","청심대에서 건구스랑 놀 사람",3,10),
+            PostItem(1,null,"진행 중","청심대에서 건구스랑 놀 사람",3,10),
+            PostItem(1,null,"마감","청심대에서 건구스랑 놀 사람",3,10),
+        ))
     )
 
     fun createPost(){ //백엔드와 연동

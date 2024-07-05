@@ -16,6 +16,7 @@ import androidx.navigation.navigation
 import com.example.gonggoose.ui.screen.CreatePostScreen
 import com.example.gonggoose.ui.screen.DetailPostScreen
 import com.example.gonggoose.ui.screen.HomeScreen
+import com.example.gonggoose.ui.screen.MyPageScreen
 
 sealed class Routes(val route: String) {
 
@@ -84,6 +85,10 @@ fun NavGraph(navController: NavHostController) {
 
             composable(Routes.CreatePost.route) {
                 CreatePostScreen(navController)
+            }
+
+            composable(Routes.MyPage.route) {
+                MyPageScreen(navController)
             }
 
             composable(Routes.DetailPost.route + "?postid={postId}",

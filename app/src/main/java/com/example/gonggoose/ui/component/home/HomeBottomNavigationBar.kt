@@ -1,6 +1,7 @@
 package com.example.gonggoose.ui.component.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -30,6 +31,7 @@ import com.example.gonggoose.R
 import com.example.gonggoose.data.ItemInfo
 import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.ui.theme.RoyalBlue
+import com.example.gonggoose.ui.theme.White
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -80,18 +82,29 @@ fun BottomNavigationBar(navController: NavController) {
                 )
             }
         }
-
-        Image(
-            painter = painterResource(id = R.drawable.ic_goose),
-            contentDescription = "app icon",
-            contentScale = ContentScale.Crop,
+        Box(
             modifier = Modifier
+                .clip(CircleShape)
+                .background(White)
                 .border(
                     width = 2.dp,
                     color = RoyalBlue,
                     shape = CircleShape
                 )
                 .size(80.dp)
+                .align(Alignment.Center)
+                .clickable {
+                    navController.navigate("Home") {
+                        launchSingleTop = true
+                    }
+                }
+        )
+        Image(
+            painter = painterResource(id = R.drawable.ic_goose),
+            contentDescription = "app icon",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(65.dp)
                 .clip(CircleShape)
                 .align(Alignment.Center)
                 .clickable {
@@ -99,6 +112,7 @@ fun BottomNavigationBar(navController: NavController) {
                         launchSingleTop = true
                     }
                 }
+                //.padding(5.dp)
         )
     }
 }
