@@ -17,6 +17,11 @@ import com.example.gonggoose.ui.screen.CreatePostScreen
 import com.example.gonggoose.ui.screen.DetailPostScreen
 import com.example.gonggoose.ui.screen.HomeScreen
 import com.example.gonggoose.ui.screen.MyPageScreen
+import com.example.gonggoose.ui.screen.auth.EnterNickNameScreen
+import com.example.gonggoose.ui.screen.auth.LoginScreen
+import com.example.gonggoose.ui.screen.auth.SchoolVerificationScreen
+import com.example.gonggoose.ui.screen.chat.ChatMessageScreen
+import com.example.gonggoose.ui.screen.chat.ChatRoomScreen
 
 sealed class Routes(val route: String) {
 
@@ -26,6 +31,10 @@ sealed class Routes(val route: String) {
     //sign up
     data object EnterNickName : Routes("signup/nickName")
     data object SchoolVerification : Routes("signup/school")
+
+    //chat
+    data object ChatMessage : Routes("chat/message")
+    data object ChatRoom : Routes("chat/room")
 
     //home
     data object Home : Routes("home/Home")
@@ -72,6 +81,7 @@ fun NavGraph(navController: NavHostController) {
                 composable(Routes.SchoolVerification.route) {
 
                 }
+
             }
 
             navigation(startDestination = Routes.Home.route, route = "home") {
@@ -101,7 +111,8 @@ fun NavGraph(navController: NavHostController) {
                 it.arguments?.getLong("postId")
                     ?.let { it1 -> DetailPostScreen(navController = navController, postId = it1) }
             }
+
+
         }
     }
-
 }

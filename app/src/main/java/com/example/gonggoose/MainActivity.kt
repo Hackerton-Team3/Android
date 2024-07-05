@@ -5,16 +5,18 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.gonggoose.navigation.NavGraph
 import com.example.gonggoose.ui.screen.HomeScreen
+import com.example.gonggoose.ui.screen.auth.LoginScreen
+import com.example.gonggoose.ui.screen.auth.SplashScreen
+import com.example.gonggoose.ui.screen.chat.ChatMessageScreen
+import com.example.gonggoose.ui.screen.chat.ChatRoomScreen
 import com.example.gonggoose.ui.theme.GongGooseTheme
 import com.kakao.sdk.common.util.Utility
 
@@ -27,6 +29,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier
                         .statusBarsPadding()
+                        .navigationBarsPadding()
                         .fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {

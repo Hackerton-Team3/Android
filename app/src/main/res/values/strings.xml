@@ -5,4 +5,7 @@
     <string name="native_app_key">0a596e1493163ff8f86b42aa1fc21edb</string>
     <string name="kakao_native_app_key">kakao0a596e1493163ff8f86b42aa1fc21edb</string>
 
+    <string name="univcert_api">99e32590-d026-4fa7-91bf-eeb445f39f78</string>
+
+
 </resources>
