@@ -36,10 +36,14 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.gonggoose.R
 import com.example.gonggoose.navigation.Routes
+import com.example.gonggoose.repository.signUp
 import com.example.gonggoose.ui.component.InputTextFieldWithoutSubText
 import com.example.gonggoose.ui.theme.LivingCoral
 import com.example.gonggoose.ui.theme.RoyalBlue
 import com.example.gonggoose.utils.auth.kakaoLogin
+import com.example.gonggoose.utils.getSignUp
+import com.example.gonggoose.utils.saveSchoolEmail
+import com.example.gonggoose.utils.saveSchoolName
 import com.univcert.api.UnivCert
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -187,7 +191,9 @@ fun SchoolVerificationScreen(navController: NavController) {
 
                 } else {
                     // 시작하기
-                    navController.navigate(Routes.Home.route)
+                    saveSchoolName(schoolName)
+                    saveSchoolEmail(schoolEmail)
+                    getSignUp()?.let { signUp(it, navController) }
                 }
             }
         ) {
@@ -206,10 +212,4 @@ fun SchoolVerificationScreen(navController: NavController) {
 
     }
 
-}
-
-enum class UnivCert {
-    SENDCODE,
-    VERIFYCODE,
-    SUCCESS
 }
