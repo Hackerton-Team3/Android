@@ -20,6 +20,7 @@ import com.example.gonggoose.ui.screen.MyPageScreen
 import com.example.gonggoose.ui.screen.auth.EnterNickNameScreen
 import com.example.gonggoose.ui.screen.auth.LoginScreen
 import com.example.gonggoose.ui.screen.auth.SchoolVerificationScreen
+import com.example.gonggoose.ui.screen.auth.SplashScreen
 import com.example.gonggoose.ui.screen.chat.ChatMessageScreen
 import com.example.gonggoose.ui.screen.chat.ChatRoomScreen
 
@@ -68,7 +69,11 @@ fun NavGraph(navController: NavHostController) {
     CompositionLocalProvider(
         LocalNavGraphViewModelStoreOwner provides navStoreOwner
     ) {
-        NavHost(navController = navController, startDestination = Routes.Login.route) {
+        NavHost(navController = navController, startDestination = Routes.Splash.route) {
+
+            composable(Routes.Splash.route) {
+                SplashScreen(navController)
+            }
 
             composable(Routes.Login.route) {
                 LoginScreen(navController)
@@ -86,11 +91,11 @@ fun NavGraph(navController: NavHostController) {
 
             navigation(startDestination = Routes.EnterNickName.route, route = "chat") {
                 composable(Routes.ChatRoom.route) {
-                    ChatRoomScreen() //TODO : Scaffold로 수정
+                    ChatRoomScreen(navController = navController)
                 }
 
                 composable(Routes.ChatMessage.route) {
-                    ChatMessageScreen() //TODO : Scaffold로 수정
+                    ChatMessageScreen()
                 }
             }
 
