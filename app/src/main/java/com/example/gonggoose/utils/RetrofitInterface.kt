@@ -11,10 +11,12 @@ import retrofit2.http.Path
 
 interface RetrofitInterface {
 
-    // 작성예시
     @POST("/users")
     fun signUp(@Body signUp : SignUp) : Call<ApiResponse>
 
     @GET("/users/{kakaoId}")
+    fun confirmDuplicate(@Path("kakaoId") kakaoId: String) : Call<ApiResponse>
+
+    @("/websocket")
     fun confirmDuplicate(@Path("kakaoId") kakaoId: String) : Call<ApiResponse>
 }
