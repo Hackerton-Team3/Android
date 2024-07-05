@@ -74,6 +74,14 @@ dependencies {
     implementation(libs.material)
     implementation(libs.ui)
 
+    //univcert
+    implementation(libs.univcert){
+        exclude(group = "org.hamcrest", module = "hamcrest-core")
+    }
+
+    //코루틴
+    implementation(libs.kotlinx.coroutines.android)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

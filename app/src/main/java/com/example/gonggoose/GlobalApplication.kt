@@ -22,6 +22,7 @@ class GlobalApplication : Application() {
         const val PROD_URL: String = "https://aiku.asia"   // 실서버 주소
         const val BASE_URL: String = DEV_URL
 
+
         lateinit var mSharedPreferences: SharedPreferences
         lateinit var retrofit: Retrofit
     }
