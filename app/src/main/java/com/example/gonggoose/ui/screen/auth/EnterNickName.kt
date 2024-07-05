@@ -34,6 +34,7 @@ import com.example.gonggoose.navigation.Routes
 import com.example.gonggoose.ui.component.InputTextField
 import com.example.gonggoose.ui.theme.LightGray
 import com.example.gonggoose.ui.theme.RoyalBlue
+import com.example.gonggoose.utils.saveNickname
 
 @Composable
 fun EnterNickNameScreen(navController: NavHostController) {
@@ -106,6 +107,7 @@ fun EnterNickNameScreen(navController: NavHostController) {
                 )
             },
             onClick = {
+                saveNickname(nickName)
                 navController.navigate(Routes.SchoolVerification.route)
             },
         )

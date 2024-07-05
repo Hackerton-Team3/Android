@@ -40,6 +40,7 @@ class MainActivity : ComponentActivity() {
 //                    var keyHash = Utility.getKeyHash(this)
 //                    Log.i("GlobalApplication", "$keyHash")
 
+
                     //테스트 코드 작성
 
                 }

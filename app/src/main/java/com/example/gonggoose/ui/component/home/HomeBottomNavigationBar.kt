@@ -133,7 +133,7 @@ fun BottomNavigationBar(navController: NavController) {
 
 object BottomNavigationBarItems{
     val items = listOf(
-        ItemInfo(R.drawable.ic_chatting, "채팅", Routes.Chatting.route),
+        ItemInfo(R.drawable.ic_chatting, "채팅", Routes.ChatRoom.route),
         ItemInfo(R.drawable.btm_nav_mypage, "마이 페이지", Routes.MyPage.route),
     )
 }
