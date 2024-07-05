@@ -50,7 +50,8 @@ fun BottomNavigationBar(navController: NavController) {
                     index, item ->
                 NavigationBarItem(
 
-                    selected = currentRoute == item.route,
+//                    selected = currentRoute == item.route,
+                    selected = false,
 
                     onClick = {
                         navController.navigate(item.route){
@@ -66,7 +67,7 @@ fun BottomNavigationBar(navController: NavController) {
                         Icon(
                             painter = painterResource(id = item.icon),
                             contentDescription = item.name,
-                            tint = Color.White,
+                            tint = White,
                             modifier = Modifier.size(28.dp)
                         )
                     },

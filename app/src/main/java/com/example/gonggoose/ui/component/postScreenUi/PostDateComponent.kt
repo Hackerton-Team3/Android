@@ -26,6 +26,7 @@ import com.example.gonggoose.R
 import com.example.gonggoose.ui.theme.Black
 import com.example.gonggoose.ui.theme.LightBlue
 import com.example.gonggoose.ui.theme.MediumGray
+import com.example.gonggoose.ui.theme.RoyalBlue
 import com.example.gonggoose.ui.theme.White
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -44,6 +45,10 @@ fun PostDateComponent() : Calendar? {
         mutableStateOf(MediumGray)
     }
 
+    var border_color by remember {
+        mutableStateOf(MediumGray)
+    }
+
     Box(
         modifier = Modifier
             .clickable {
@@ -53,7 +58,7 @@ fun PostDateComponent() : Calendar? {
                 color = White,
                 shape = RoundedCornerShape(15.dp)
             )
-            .border(3.dp, LightBlue, shape = RoundedCornerShape(15.dp))
+            .border(3.dp, border_color, shape = RoundedCornerShape(15.dp))
             .fillMaxWidth()
             .height(50.dp),
     ) {
@@ -72,6 +77,7 @@ fun PostDateComponent() : Calendar? {
                 dataText = newDate.getFormattedDateString() +  " (" + (selectedDate.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.KOREAN)
                     ?.get(0) ?: "?") + ")"
                 color = Black
+                border_color = LightBlue
             }
         }
     }

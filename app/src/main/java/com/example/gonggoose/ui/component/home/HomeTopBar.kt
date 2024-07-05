@@ -25,7 +25,9 @@ import com.example.gonggoose.ui.theme.MediumGray
 fun TopBar() {
     Column {
         Row(
-            modifier = Modifier.fillMaxWidth().height(70.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(70.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
@@ -35,6 +37,7 @@ fun TopBar() {
                 modifier = Modifier
                     .padding(start = 25.dp)
             )
+            Spacer(modifier = Modifier.weight(1f))
 
             Image(
                 painter = painterResource(
@@ -42,15 +45,9 @@ fun TopBar() {
                 ),
                 contentDescription = "",
                 modifier = Modifier
-                    .padding(start = 150.dp)
+                    .padding(start = 150.dp, end = 20.dp)
                     .size(28.dp)
             )
         }
-        Spacer(
-            modifier = Modifier
-                .height(1.dp)
-                .fillMaxWidth()
-                .background(MediumGray)
-        )
     }
 }

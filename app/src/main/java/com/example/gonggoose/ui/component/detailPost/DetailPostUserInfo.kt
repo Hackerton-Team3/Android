@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -47,8 +48,8 @@ fun DetailPostUserInfo() {
 
     Box(
         modifier = Modifier
-            .padding(top = 25.dp)
-            .width(350.dp)
+            .padding(top = 25.dp, end = 100.dp)
+//            .fillMaxWidth()
             .height(85.dp)
             .background(
                 color = White,
@@ -99,7 +100,7 @@ fun DetailPostUserInfo() {
                         fontSize = 15.sp,
                         maxLines = 2,
                         modifier = Modifier
-                            .width(180.dp)
+                            .width(280.dp)
                     )
                     CustomRoundedBox(
                         text = detailPostInfo.current_member.toString() + "/" + detailPostInfo.total_member.toString(),

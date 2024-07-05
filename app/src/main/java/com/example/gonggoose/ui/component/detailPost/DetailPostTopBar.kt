@@ -3,6 +3,7 @@ package com.example.gonggoose.ui.component.detailPost
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -70,12 +71,14 @@ fun DetailPostTopBar() {
                 .padding(start = 20.dp),
             maxLines = 1
         )
+        
+        Spacer(modifier = Modifier.weight(1f))
 
         Icon(
             painter = painterResource(id = R.drawable.btn_menu),
             contentDescription = "수정하기 버튼 아이콘",
             tint = White,
-            modifier = Modifier.padding(start = 17.dp)
+            modifier = Modifier.padding(start = 17.dp, end = 20.dp)
         )
     }
 }

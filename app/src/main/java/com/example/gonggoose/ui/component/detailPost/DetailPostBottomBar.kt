@@ -44,7 +44,7 @@ fun DetailPostBottomBar(navController: NavController) {
                     horizontal = dimensionResource(id = R.dimen.screen_padding_horizontal_35),
                     vertical = dimensionResource(id = R.dimen.btn_inner_padding_horizontal_10)
                 )
-                .width(323.dp)
+                .fillMaxWidth()
                 .height(54.dp)
                 .background(
                     color = SoftBlack,
